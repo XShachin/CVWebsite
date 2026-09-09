@@ -3,10 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6f064426c7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>Your Name</title>
+    <style>
+    html, body {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden; 
+  }
+
+  .resume-content {
+    /* 🎯 THE FILL OVERRIDE: Tells the card layout to fill up 100% of the brand-new 60vw boundary space */
+    width: 100% !important;     
+    max-width: 100% !important; 
+    
+    height: 100% !important;
+    max-height: 100% !important;
+    padding: 40px !important;     
+    box-sizing: border-box;       
+    
+    background: transparent !important; 
+    border-radius: 0 !important;       
+    box-shadow: none !important;  
+  }
+</style>
   </head>
-  <body>
-   
-  </body>
+<body>
+  <main class="resume-content">
+    <form class="one-col" method="post" action="https://formsubmit.co/shachinc393@gmail.com">
+      <div class="title">Welcome,<br><span>Talk To Me</span></div>
+
+      <input type="name" placeholder="Name" name="name" class="input" required>
+      <input type="email" placeholder="Email" name="email" class="input" required>
+      <textarea id="message" placeholder="Write your Message..." name="message" rows="5" required></textarea><br><br>
+      <button class="button-confirm">Submit →</button>
+    </form>
+    </main>
+
+  
+</body>
 </html>

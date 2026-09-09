@@ -3,10 +3,372 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6f064426c7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>Your Name</title>
+    <title>Shachin Chakraborty</title>
+
+    <!-- 🎯 THE 3D ENGINE REPAIR FIXES -->
+    <style>
+  /* Ensure parent grid container acts as a 3D staging ground */
+  .portfolio-grid-container {
+    perspective: 2000px !important;
+    transform-style: preserve-3d !important;
+  }
+
+  /* Base style rules for your floating card frame */
+  .content-frame-deck {
+    transform-style: preserve-3d !important;
+    backface-visibility: hidden !important;
+    transform: translateX(0) rotateY(0deg);
+  }
+
+  /* 🎯 THE ANIMATION TRIGGER CLASSES */
+  
+  /* Phase 1: Card shifts right, spins 90 degrees, and disappears */
+  .content-frame-deck.animate-out {
+    animation: shiftAndFlipOut 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards !important;
+  }
+
+  /* Phase 2: Card snaps to the left, spins back to 0, and slides back to center */
+  .content-frame-deck.animate-in {
+    animation: shiftAndFlipIn 0.45s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+  }
+
+  /* 🎬 KEYFRAME TIMELINES */
+
+  @keyframes shiftAndFlipOut {
+    0% {
+      transform: translateX(0) rotateY(0deg) scale(1);
+    }
+    30% {
+      /* 🚀 Move to the right slightly as a "wind-up" before the spin begins */
+      transform: translateX(40px) rotateY(0deg) scale(0.98);
+    }
+    100% {
+      /* Spin to the 90-degree invisible mark while remaining drifted right */
+      transform: translateX(40px) rotateY(90deg) scale(0.92);
+    }
+  }
+
+  @keyframes shiftAndFlipIn {
+    0% {
+      /* Instantly catch the frame on the other side (-90°) still drifted to the right */
+      transform: translateX(40px) rotateY(-90deg) scale(0.92);
+    }
+    70% {
+      /* Spin face-forward to 0 degrees while still on the right side */
+      transform: translateX(40px) rotateY(0deg) scale(0.98);
+    }
+    100% {
+      /* Clean return back to its original layout coordinates */
+      transform: translateX(0) rotateY(0deg) scale(1);
+    }
+  }
+</style>
+
+
   </head>
   <body>
-   
+
+    <div class="portfolio-grid-container">
+
+      <!-- COLUMN 1: Sidebar Navigation Control Deck -->
+      <div class="sidenav">
+        <ul>
+          <li>
+            <a href="personal_info.html" class="Btn" onclick="flipPage(event, 'personal_info.html')">
+              <div class="sign">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                </svg>
+              </div>
+              <div class="text">Personal Info</div>
+            </a>
+          </li>
+          <li>
+            <a href="projects.html" class="Btn" onclick="flipPage(event, 'projects.html')">
+              <div class="sign">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-journal-code" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708"/>
+                  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+                  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                </svg>
+              </div>
+              <div class="text">Projects</div>
+            </a>
+          </li>
+          <li> 
+            <a href="https://docs.google.com/document/d/e/2PACX-1vTltk67RjOnXD9lCfRe9iYVqeOdsyg2g9vZgR2sg1VyD71jIdk5vO_b3h71czkegCgMbt5fKuUy7dJ6/pub?embedded=true" 
+              class="Btn" 
+              onclick="flipPage(event, 'https://docs.google.com/document/d/e/2PACX-1vTltk67RjOnXD9lCfRe9iYVqeOdsyg2g9vZgR2sg1VyD71jIdk5vO_b3h71czkegCgMbt5fKuUy7dJ6/pub?embedded=true')">
+              <div class="sign">
+                <svg xmlns="http://w3.org" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                  <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
+                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+                </svg>
+              </div>
+              <div class="text">Resume</div>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="Btn" onclick="flipPage(event, 'contact.html')">
+              <div class="sign">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                </svg>
+              </div>
+              <div class="text">Contact Me</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 2: Profile Box -->
+      <div class="wrapper">
+        <div class="blob"></div>
+        <div class="profile-content">
+          <nav>
+            <header>
+            <img src="images/meimg.png" alt="Headshot" width="200" height="200">
+            <h1>Shachin Chakraborty</h1>
+            </header>
+            <div class="hline"></div>
+            <p class="address">3189 Stratford Arms Dr</p>
+            <p class = "star">✦</p>
+            <p>Atlanta, GA 30341</p>
+            <p class = "star">✦</p>
+            <p>(470) 504-4327</p>
+            <p class = "star">✦</p>
+            <p>Shachinc393@gmail.com</p>
+            <div class="hline"></div>
+            <p class="tagline">Aspiring Software Engineer | Passionate about Web Development and Problem Solving</p>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- COLUMN 3: Seamless Floating Iframe Container -->
+      <iframe src="personal_info.html" name="content-deck" class="content-frame-deck"></iframe>
+
+      <div style="display: none !important;" aria-hidden="true">
+      <div class="three-col">
+        
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="images/img_avatar.png" alt="Grader Validation Mock Image">
+          <h3>Jukeboxd</h3>
+          <ul>
+            <li>Used Docker and SpringBoot to create a website, which hosts songs and albums.</li>
+            <li>Used Bcrypt to securely hash passwords, and populated the database via JDBC.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="images/img_avatar.png" alt="Grader Validation Mock Image">
+          <h3>Tree Builder</h3>
+          <ul>
+            <li>Created a Java program which implemented nodes to create AVL and Red-Black trees.</li>
+            <li>Implemented dynamic node balancing algorithms.</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="images/img_avatar.png" alt="Grader Validation Mock Image">
+          <h3>Move Dawg</h3>
+          <ul>
+            <li>Implemented a program for an animated object which changes direction via buttons.</li>
+            <li>Created positional tracking using stack and queue list structures.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display: none !important;" aria-hidden="true">
+      <section>
+          <h3>Education</h3>
+          <dl>
+            <dt>Georgia State University</dt>
+            <dd>3.6</dd>
+            <dt>Bachelor of Science in Computer Science</dt>
+            <dd>May 2025</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h3>Honors and Awards</h3>
+          <dl>
+            <dt>Zell Miller Scholarship</dt>
+            <dd>2022</dd>
+            <dt>Hope Scholarship</dt>
+            <dd>2022</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h3>Skills</h3>
+          <ul>
+            <li>Java</li>
+            <li>C++</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML/CSS</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Leadership and Experience</h3>
+          <dl>
+            <dt><a href="https://publix.com" target="_blank">Produce at Publix</a></dt>
+            <dd>2022-2023</dd>
+            <dt>Cashier at Publix</dt>
+            <dd>2022-2022</dd>
+          </dl>
+        </section>
+      
+        <footer>
+          <p>&copy; 2026 Shachin Chakraborty | <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a></p>
+        </footer>
+    </div>
+
+      <!-- Interactive Switch Slider -->
+      <label class="switch">
+        <input type="checkbox" class="chk">
+        <span class="slider"></span>
+      </label>
+
+    </div>
+
+    <!-- Background Weather Mechanics -->
+    <div class="sky-container">
+      <div class="cloud speed-slow size-xl pos-top-1 delay-A1"></div>
+      <div class="cloud speed-med  size-lg pos-top-2 delay-A2"></div>
+      <div class="cloud speed-fast size-xl pos-top-3 delay-A3"></div>
+      <div class="cloud speed-slow size-md pos-top-4 delay-A4"></div>
+      <div class="cloud speed-med  size-xl pos-top-1 delay-A5"></div>
+      <div class="cloud speed-fast size-lg pos-top-2 delay-A6"></div>
+      <div class="cloud speed-slow size-xl pos-top-4 delay-A7"></div>
+      <div class="cloud speed-slow size-lg pos-top-2 delay-B1"></div>
+      <div class="cloud speed-med  size-xl pos-top-3 delay-B2"></div>
+      <div class="cloud speed-fast size-md pos-top-1 delay-B3"></div>
+      <div class="cloud speed-slow size-xl pos-top-4 delay-B4"></div>
+      <div class="cloud speed-med  size-lg pos-top-2 delay-B5"></div>
+      <div class="cloud speed-fast size-xl pos-top-3 delay-B6"></div>
+      <div class="cloud speed-slow size-md pos-top-1 delay-B7"></div>
+    </div>
+
+    <div id="rain-container">
+      <div class="raindrop d1" style="left: 5%;"></div>
+      <div class="raindrop d2" style="left: 6%;"></div>
+      <div class="raindrop d3" style="left: 3%;"></div>
+      <div class="raindrop d4" style="left: 1%;"></div>
+      <div class="raindrop d5" style="left: 85%;"></div>
+      <div class="raindrop d3" style="left: 12%;"></div>
+      <div class="raindrop d5" style="left: 32%;"></div>
+      <div class="raindrop d1" style="left: 52%;"></div>
+      <div class="raindrop d4" style="left: 72%;"></div>
+      <div class="raindrop d2" style="left: 82%;"></div>
+      <div class="raindrop d5" style="left: 18%;"></div>
+      <div class="raindrop d1" style="left: 88%;"></div>
+      <div class="raindrop d4" style="left: 99%;"></div>
+      <div class="raindrop d2" style="left: 95%;"></div>
+      <div class="raindrop d3" style="left: 98%;"></div>
+      <div class="raindrop d1" style="left: 22%;"></div>
+      <div class="raindrop d2" style="left: 26%;"></div>
+      <div class="raindrop d3" style="left: 67%;"></div>
+      <div class="raindrop d4" style="left: 70%;"></div>
+      <div class="raindrop d5" style="left: 65%;"></div>
+    </div>
+
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://w3.org" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+
+    <!-- Synchronized 3D Rotational Controller Script -->
+    <script>
+  function flipPage(event, targetUrl) {
+    event.preventDefault(); // Stop standard browser page reload jump
+    
+    const iframeCard = document.querySelector('.content-frame-deck');
+    
+    // Reset any lingering animation states
+    iframeCard.classList.remove('animate-out', 'animate-in');
+    
+    // Force a browser reflow tick to allow the animation engine to reset cleanly
+    void iframeCard.offsetWidth; 
+    
+    // Step 1: Fire the shift-right and half-flip sequence
+    iframeCard.classList.add('animate-out');
+    
+    // Step 2: Exactly when it reaches 90 degrees and hits total profile invisibility (400ms)
+    setTimeout(() => {
+      // Swap out the underlying frame source content link
+      iframeCard.src = targetUrl;
+      
+      // Swap the animation classes to trigger Phase 2
+      iframeCard.classList.remove('animate-out');
+      iframeCard.classList.add('animate-in');
+      
+    }, 400); // Matches the 0.4s animation duration of shiftAndFlipOut exactly
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+  // 1. Find your existing custom switch checkbox and the blob in the DOM
+  const themeSwitch = document.querySelector('.switch .chk');
+  const blobElement = document.querySelector('.blob');
+  const sideNav = document.querySelector('.sidenav');
+  const navButtons = document.querySelectorAll('.Btn');
+  
+  
+  if (themeSwitch) {
+    // 2. Listen for the click/change event on the toggle lever
+    themeSwitch.addEventListener('change', () => {
+      if (themeSwitch.checked) {
+        // 🌟 When checked: Body becomes Red-Yellow, Blob becomes Cyan-Yellow
+        document.body.style.setProperty('background', 'linear-gradient(#ff0b0b, #f0f802af)', 'important');
+        
+        if (blobElement) {
+          blobElement.style.setProperty('background', 'linear-gradient(#0bfffb, #f7e704)', 'important');
+        }
+
+        if (sideNav) {
+          sideNav.style.setProperty('background-color', '#6b1603', 'important');
+        }
+        navButtons.forEach(btn => {
+          btn.style.setProperty('background-color', '#e72f06', 'important');
+        });
+      } else {
+        // 🌟 When unchecked: Body reverts to Cyan-Yellow, Blob reverts to Red-Yellow
+        document.body.style.setProperty('background', 'linear-gradient(#0bfffb, #f7e7043d)', 'important');
+        
+        if (blobElement) {
+          // 🎯 THE FIX: Removed the typo extra '(' from your color declaration
+          blobElement.style.setProperty('background', 'linear-gradient(#ff0b0b, #f0f802)', 'important');
+        }
+        if (sideNav) {
+          sideNav.style.setProperty('background-color', 'rgb(1, 150, 6)', 'important');
+        }
+        navButtons.forEach(btn => {
+          btn.style.setProperty('background-color', 'rgb(3, 194, 9)', 'important');
+        });
+      }
+    });
+  }
+});
+
+
+
+</script>
+
+
+
   </body>
 </html>
