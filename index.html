@@ -147,7 +147,69 @@
       </div>
       
       <!-- COLUMN 3: Seamless Floating Iframe Container -->
-      <iframe src="personal_info.html" name="content-deck" class="content-frame-deck"></iframe>
+      <!-- DESKTOP SCREEN INTERACTIVE AGENT: Seamless Floating Iframe Container -->
+<iframe src="personal_info.html" name="content-deck" class="content-frame-deck"></iframe>
+
+<!-- MOBILE SCREEN STACKED PANELS: All pages load together beneath 680px -->
+<div class="mobile-sections-stack">
+  
+  <!-- PAGE 1: PERSONAL INFO -->
+  <section id="mobile-personal" class="mobile-card">
+    <h2><i class="fa-solid fa-user"></i> Personal Info</h2>
+    <p>Welcome to my portfolio! I am an aspiring software engineer based in Atlanta, GA. I specialize in crafting robust backend code architecture and designing clean, fluid front-end user experiences.</p>
+    <div class="bullet-grid">
+      <div class="bullet-item"><strong>Location:</strong> Atlanta, GA</div>
+      <div class="bullet-item"><strong>Education:</strong> University of Georgia (B.S. CS)</div>
+      <div class="bullet-item"><strong>GPA:</strong> 3.68 / 4.00</div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: PROJECTS -->
+  <section id="mobile-projects" class="mobile-card">
+    <h2><i class="fa-solid fa-code"></i> Projects</h2>
+    
+    <div class="project-item">
+      <h3>JukeBoxd</h3>
+      <p>Used Docker and SpringBoot to create a website hosting song and album ratings. Implemented secure Bcrypt hashing and complex SQL queries.</p>
+    </div>
+    
+    <div class="project-item">
+      <h3>Tree Builder</h3>
+      <p>Created a Java program implementing nodes to build self-adjusting AVL and Red & Black trees with search parameters.</p>
+    </div>
+    
+    <div class="project-item">
+      <h3>Move Dawg</h3>
+      <p>Implemented an animated object canvas tracker handling direction states via custom stack and queue data formats.</p>
+    </div>
+  </section>
+
+  <!-- PAGE 3: RESUME -->
+  <section id="mobile-resume" class="mobile-card">
+    <h2><i class="fa-solid fa-file-invoice"></i> Experience & Skills</h2>
+    <h3>Work Experience</h3>
+    <p><strong>Publix Super Markets</strong> — Produce & Cashier Specialist</p>
+    <p style="font-size: 0.9em; margin-top: 5px;">Delivered high-tier customer service, optimized product blocking timelines, and managed transaction accuracy.</p>
+    
+    <h3 style="margin-top: 15px;">Technical Skills</h3>
+    <div class="skills-tags">
+      <span>Java</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4: CONTACT -->
+  <section id="mobile-contact" class="mobile-card">
+    <h2><i class="fa-solid fa-paper-plane"></i> Contact Me</h2>
+    <p>Let's collaborate! Feel free to reach out directly through any of the channels below:</p>
+    <ul class="contact-links" style="list-style: none; padding: 0; margin-top: 15px;">
+      <li><i class="fa-solid fa-envelope"></i> shachinc393@gmail.com</li>
+      <li><i class="fa-solid fa-phone"></i> (470) 504-4327</li>
+      <li><i class="fa-solid fa-link"></i> <a href="https://linkedin.com" target="_blank" style="color: inherit; text-decoration: underline;">://linkedin.com</a></li>
+    </ul>
+  </section>
+
+</div>
+
 
       <label class="switch">
         <input type="checkbox" class="chk">
@@ -208,82 +270,146 @@
       </g>
     </svg>
 
-    <!-- Synchronized 3D Rotational Controller Script -->
     <script>
-  function flipPage(event, targetUrl) {
-    event.preventDefault(); // Stop standard browser page reload jump
-    
-    const iframeCard = document.querySelector('.content-frame-deck');
-    
-    // Reset any lingering animation states
-    iframeCard.classList.remove('animate-out', 'animate-in');
-    
-    // Force a browser reflow tick to allow the animation engine to reset cleanly
-    void iframeCard.offsetWidth; 
-    
-    // Step 1: Fire the shift-right and half-flip sequence
-    iframeCard.classList.add('animate-out');
-    
-    // Step 2: Exactly when it reaches 90 degrees and hits total profile invisibility (400ms)
+function flipPage(event, targetUrl) {
+    // MOBILE
+    if (window.innerWidth <= 680) {
+        event.preventDefault();
+
+        let targetId = "";
+
+        if (targetUrl.includes("personal_info")) {
+            targetId = "mobile-personal";
+        } 
+        else if (targetUrl.includes("projects")) {
+            targetId = "mobile-projects";
+        } 
+        else if (targetUrl.includes("pub?embedded")) {
+            targetId = "mobile-resume";
+        } 
+        else if (targetUrl.includes("contact")) {
+            targetId = "mobile-contact";
+        }
+
+        if (targetId) {
+            const element = document.getElementById(targetId);
+
+            if (element) {
+                const offset = 90;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition =
+                    elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        return;
+    }
+
+    // DESKTOP
+    event.preventDefault();
+
+    const deck = document.querySelector(".content-frame-deck");
+
+    if (!deck) return;
+
+    deck.classList.remove("animate-in");
+    deck.classList.add("animate-out");
+
     setTimeout(() => {
-      // Swap out the underlying frame source content link
-      iframeCard.src = targetUrl;
-      
-      // Swap the animation classes to trigger Phase 2
-      iframeCard.classList.remove('animate-out');
-      iframeCard.classList.add('animate-in');
-      
-    }, 400); // Matches the 0.4s animation duration of shiftAndFlipOut exactly
-  }
-  document.addEventListener('DOMContentLoaded', () => {
-  // 1. Find your existing custom switch checkbox and the blob in the DOM
-  const themeSwitch = document.querySelector('.switch .chk');
-  const blobElement = document.querySelector('.blob');
-  const sideNav = document.querySelector('.sidenav');
-  const navButtons = document.querySelectorAll('.Btn');
-  
-  
-  if (themeSwitch) {
-    // 2. Listen for the click/change event on the toggle lever
-    themeSwitch.addEventListener('change', () => {
-      if (themeSwitch.checked) {
-        // 🌟 When checked: Body becomes Red-Yellow, Blob becomes Cyan-Yellow
-        document.body.style.setProperty('background', 'linear-gradient(#ff0b0b, #f0f802af)', 'important');
-        
-        if (blobElement) {
-          blobElement.style.setProperty('background', 'linear-gradient(#0bfffb, #f7e704)', 'important');
-        }
+        deck.src = targetUrl;
+        deck.classList.remove("animate-out");
+        deck.classList.add("animate-in");
+    }, 400);
+}
 
-        if (sideNav) {
-          sideNav.style.setProperty('background-color', '#6b1603', 'important');
+
+// ==============================
+// THEME SWITCH
+// ==============================
+
+const themeSwitch = document.querySelector(".chk");
+const blobElement = document.querySelector(".blob");
+const sideNav = document.querySelector(".sidenav");
+const navButtons = document.querySelectorAll(".Btn");
+
+if (themeSwitch) {
+
+    themeSwitch.addEventListener("change", () => {
+
+        if (themeSwitch.checked) {
+
+            // RED / YELLOW THEME
+            document.body.style.setProperty(
+                "background",
+                "linear-gradient(#ff0b0b, #f0f802af)",
+                "important"
+            );
+
+            if (blobElement) {
+                blobElement.style.setProperty(
+                    "background",
+                    "linear-gradient(#0bfffb, #f7e704)",
+                    "important"
+                );
+            }
+
+            if (sideNav) {
+                sideNav.style.setProperty(
+                    "background-color",
+                    "#6b1603",
+                    "important"
+                );
+            }
+
+            navButtons.forEach(btn => {
+                btn.style.setProperty(
+                    "background-color",
+                    "#e72f06",
+                    "important"
+                );
+            });
+
+        } else {
+
+            // CYAN / YELLOW THEME
+            document.body.style.setProperty(
+                "background",
+                "linear-gradient(#0bfffb, #f7e7043d)",
+                "important"
+            );
+
+            if (blobElement) {
+                blobElement.style.setProperty(
+                    "background",
+                    "linear-gradient(#ff0b0b, #f0f802)",
+                    "important"
+                );
+            }
+
+            if (sideNav) {
+                sideNav.style.setProperty(
+                    "background-color",
+                    "rgb(1, 150, 6)",
+                    "important"
+                );
+            }
+
+            navButtons.forEach(btn => {
+                btn.style.setProperty(
+                    "background-color",
+                    "rgb(3, 194, 9)",
+                    "important"
+                );
+            });
         }
-        navButtons.forEach(btn => {
-          btn.style.setProperty('background-color', '#e72f06', 'important');
-        });
-      } else {
-        // 🌟 When unchecked: Body reverts to Cyan-Yellow, Blob reverts to Red-Yellow
-        document.body.style.setProperty('background', 'linear-gradient(#0bfffb, #f7e7043d)', 'important');
-        
-        if (blobElement) {
-          // 🎯 THE FIX: Removed the typo extra '(' from your color declaration
-          blobElement.style.setProperty('background', 'linear-gradient(#ff0b0b, #f0f802)', 'important');
-        }
-        if (sideNav) {
-          sideNav.style.setProperty('background-color', 'rgb(1, 150, 6)', 'important');
-        }
-        navButtons.forEach(btn => {
-          btn.style.setProperty('background-color', 'rgb(3, 194, 9)', 'important');
-        });
-      }
     });
-  }
-});
-
-
-
+}
 </script>
-
-
 
   </body>
 </html>
