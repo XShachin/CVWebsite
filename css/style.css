@@ -1008,7 +1008,7 @@ section a:hover {
   .switch {
     position: fixed !important;
     top: -.3%;
-    left: 75%;
+    left: 80%;
     z-index: 2000 !important;
   }
 
