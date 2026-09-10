@@ -1007,7 +1007,7 @@ section a:hover {
   /* Position theme switch on mobile screen */
   .switch {
     position: fixed !important;
-    top: -.4%;
+    top: -.3%;
     left: 75%;
     z-index: 2000 !important;
   }
