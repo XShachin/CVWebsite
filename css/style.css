@@ -864,6 +864,27 @@ section a:hover {
     scroll-behavior: smooth; /* Enables elegant native smooth scrolling */
   }
 
+    .mobile-resume-container {
+    width: 100% !important;
+    /* Uses standard US letter page aspect ratio (8.5 x 11) to scale naturally */
+    aspect-ratio: 8.5 / 11; 
+    /* Alternative option: If you want it extra long to display multiple pages without scrollbars: */
+    /* height: 110vh !important; */
+    margin: 15px 0 !important;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensures the live iframe fills the exact container boundaries */
+  .mobile-resume-frame {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    display: block;
+  }
+
   /* 1. Reset the base grid and force it to stack elements safely above the background layers */
   .portfolio-grid-container {
     display: flex !important;

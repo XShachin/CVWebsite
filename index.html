@@ -156,11 +156,18 @@
   <!-- PAGE 1: PERSONAL INFO -->
   <section id="mobile-personal" class="mobile-card">
     <h2><i class="fa-solid fa-user"></i> Personal Info</h2>
-    <p>Welcome to my portfolio! I am an aspiring software engineer based in Atlanta, GA. I specialize in crafting robust backend code architecture and designing clean, fluid front-end user experiences.</p>
     <div class="bullet-grid">
       <div class="bullet-item"><strong>Location:</strong> Atlanta, GA</div>
       <div class="bullet-item"><strong>Education:</strong> University of Georgia (B.S. CS)</div>
       <div class="bullet-item"><strong>GPA:</strong> 3.68 / 4.00</div>
+    </div>
+    <h3 style="margin-top: 20px;">Work Experience Overview</h3>
+    <p><strong>Publix Super Markets</strong> — Produce & Cashier Specialist</p>
+    <p style="font-size: 0.9em; margin-top: 5px;">Delivered high-tier customer service, optimized product blocking timelines, and managed transaction accuracy.</p>
+    
+    <h3 style="margin-top: 15px;">Technical Skills</h3>
+    <div class="skills-tags">
+      <span>Java</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span>
     </div>
   </section>
 
@@ -186,26 +193,24 @@
 
   <!-- PAGE 3: RESUME -->
   <section id="mobile-resume" class="mobile-card">
-    <h2><i class="fa-solid fa-file-invoice"></i> Experience & Skills</h2>
-    <h3>Work Experience</h3>
-    <p><strong>Publix Super Markets</strong> — Produce & Cashier Specialist</p>
-    <p style="font-size: 0.9em; margin-top: 5px;">Delivered high-tier customer service, optimized product blocking timelines, and managed transaction accuracy.</p>
-    
-    <h3 style="margin-top: 15px;">Technical Skills</h3>
-    <div class="skills-tags">
-      <span>Java</span><span>C</span><span>C++</span><span>HTML</span><span>CSS</span>
+    <div class="mobile-resume-container">
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vTltk67RjOnXD9lCfRe9iYVqeOdsyg2g9vZgR2sg1VyD71jIdk5vO_b3h71czkegCgMbt5fKuUy7dJ6/pub?embedded=true" 
+              class="mobile-resume-frame" 
+              frameborder="0">
+      </iframe>
     </div>
   </section>
 
   <!-- PAGE 4: CONTACT -->
   <section id="mobile-contact" class="mobile-card">
-    <h2><i class="fa-solid fa-paper-plane"></i> Contact Me</h2>
-    <p>Let's collaborate! Feel free to reach out directly through any of the channels below:</p>
-    <ul class="contact-links" style="list-style: none; padding: 0; margin-top: 15px;">
-      <li><i class="fa-solid fa-envelope"></i> shachinc393@gmail.com</li>
-      <li><i class="fa-solid fa-phone"></i> (470) 504-4327</li>
-      <li><i class="fa-solid fa-link"></i> <a href="https://linkedin.com" target="_blank" style="color: inherit; text-decoration: underline;">://linkedin.com</a></li>
-    </ul>
+    <form class="one-col" method="post" action="https://formsubmit.co/shachinc393@gmail.com">
+      <div class="title">Welcome,<br><span>Talk To Me</span></div>
+
+      <input type="name" placeholder="Name" name="name" class="input" required>
+      <input type="email" placeholder="Email" name="email" class="input" required>
+      <textarea id="message" placeholder="Write your Message..." name="message" rows="5" required></textarea><br><br>
+      <button class="button-confirm">Submit →</button>
+    </form>
   </section>
 
 </div>
