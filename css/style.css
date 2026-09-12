@@ -859,7 +859,7 @@ section a:hover {
      ========================================== */
 
   .sidenav {
-    position: 26px !important;
+    position: -20px !important;
     transform: translateY(-50%);
 
     /* Remove desktop/mobile side positioning */
@@ -930,6 +930,7 @@ section a:hover {
   .profile-content {
     width: 98% !important;
     max-width: 100% !important;
+    height: 100%;
 
     z-index: 2 !important;
 
@@ -949,10 +950,8 @@ section a:hover {
 
     align-items: center !important;
 
-    width: 100% !important;
-    max-width: 100% !important;
-
-    height: auto !important;
+    width: 110% !important;
+    margin: -15px;
 
     box-sizing: border-box;
   }
@@ -1077,8 +1076,8 @@ section a:hover {
   .switch {
     position: fixed !important;
 
-    top: -0.3%;
-    left: 80%;
+    top: 0.2%;
+    left: 90%;
 
     z-index: 2000 !important;
   }
