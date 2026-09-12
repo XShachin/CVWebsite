@@ -704,10 +704,6 @@ header img {
   text-decoration:wavy;
 }
 
-/************* Sections ********************/
-hr {
-
-}
 
 h3 {
   font-family: Impact, fantasy;
@@ -839,7 +835,7 @@ section a:hover {
 
   /* Clean layout anchors for the horizontal navigation strip */
   .sidenav {
-    left: 5px;
+    left: 26px;
     transform: translateY(-50%) translateX(-20%);
     width: auto !important;
     max-width: 480px !important;
@@ -929,7 +925,7 @@ section a:hover {
   .switch {
     position: fixed !important;
     top: -.3%;
-    left: 80%;
+    left: 84%;
     z-index: 2000 !important;
   }
 
