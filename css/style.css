@@ -754,7 +754,7 @@ section a:hover {
     position: fixed !important;
 
     top: 0.2%;
-    left: 90%;
+    left: 90% !important;
 
     z-index: 2000 !important;
   }
@@ -903,7 +903,7 @@ section a:hover {
     transform: translateY(-50%);
 
     /* Remove desktop/mobile side positioning */
-    left: -70px !important;
+    left: -70px;
     right: auto !important;
     top: auto !important;
 
