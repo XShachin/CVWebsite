@@ -346,14 +346,20 @@ if (themeSwitch) {
 
     themeSwitch.addEventListener("change", () => {
 
+        const root = document.documentElement;
+
         if (themeSwitch.checked) {
 
+            // ==============================
             // RED / YELLOW THEME
-            document.body.style.setProperty(
-                "background",
-                "linear-gradient(#ff0b0b, #f0f802af)",
-                "important"
-            );
+            // ==============================
+
+            const bg =
+                "linear-gradient(#ff0b0b, #f0f802af)";
+
+            // Change BOTH html and body
+            root.style.setProperty("background", bg, "important");
+            document.body.style.setProperty("background", bg, "important");
 
             if (blobElement) {
                 blobElement.style.setProperty(
@@ -381,12 +387,16 @@ if (themeSwitch) {
 
         } else {
 
+            // ==============================
             // CYAN / YELLOW THEME
-            document.body.style.setProperty(
-                "background",
-                "linear-gradient(#0bfffb, #f7e7043d)",
-                "important"
-            );
+            // ==============================
+
+            const bg =
+                "linear-gradient(#0bfffb, #f7e7043d)";
+
+            // Change BOTH html and body
+            root.style.setProperty("background", bg, "important");
+            document.body.style.setProperty("background", bg, "important");
 
             if (blobElement) {
                 blobElement.style.setProperty(
@@ -414,6 +424,7 @@ if (themeSwitch) {
         }
     });
 }
+
 </script>
 
   </body>
